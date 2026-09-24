@@ -210,7 +210,6 @@ app.put('/api/orders/:id/status', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-=======
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -443,4 +442,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
->>>>>>> f320a616efbbe6a9c8afcdc853ff5ebdaeb186dd
+
