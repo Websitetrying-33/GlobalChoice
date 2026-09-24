@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+// I-serve ang lahat ng static files (HTML, CSS, JS, Images) mula sa root directory
+app.use(express.static(path.join(__dirname)));
+
 // Mga path para sa JSON storage files sa server
 const PRODUCTS_FILE = path.join(__dirname, 'products.json');
 const ORDERS_FILE = path.join(__dirname, 'orders.json');
@@ -121,7 +124,6 @@ app.delete('/api/products/:id', (req, res) => {
 // Get all orders (ADMIN)
 app.get('/api/orders', (req, res) => {
     const orders = readJsonFile(ORDERS_FILE);
-    // Sort by id descending para unahin ang pinakabagong order katulad ng sa SQLite ORDER BY id DESC
     orders.sort((a, b) => b.id - a.id);
     res.json(orders);
 });
@@ -217,6 +219,11 @@ app.put('/api/orders/:id/status', (req, res) => {
     writeJsonFile(ORDERS_FILE, orders);
 
     res.json({ message: 'Order status updated successfully' });
+});
+
+// Fallback para sa mga HTML pages (para diretso mag-load ang index.html sakaling i-refresh)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start server
