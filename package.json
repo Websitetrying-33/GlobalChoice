@@ -2,10 +2,21 @@
   "name": "ecommerce-app",
   "version": "1.0.0",
   "description": "",
+<<<<<<< HEAD
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+=======
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+>>>>>>> f320a616efbbe6a9c8afcdc853ff5ebdaeb186dd
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,8 +25,12 @@
     "axios": "^1.20.0",
     "body-parser": "^2.3.0",
     "cors": "^2.8.6",
+<<<<<<< HEAD
     "express": "^5.2.1",
     "mysql2": "^3.24.4",
     "sqlite3": "^6.0.1"
+=======
+    "express": "^5.2.1"
+>>>>>>> f320a616efbbe6a9c8afcdc853ff5ebdaeb186dd
   }
 }
